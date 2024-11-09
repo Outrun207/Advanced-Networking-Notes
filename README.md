@@ -1,5 +1,11 @@
 # Advanced Networking Cert Study
 
+## DNS
+
+DNS resolver runs on a reserved IP address for the VPC network range, plus 2. For example, the DNS Server on a 10.0.0.0/16 network is located at 10.0.0.2.
+
+Route 53 Resolver is also available at 169.254.169.2**53**
+
 ## Routing priority 
 
 Order of BGP path selection from MOST preferred to LEAST preferred:
