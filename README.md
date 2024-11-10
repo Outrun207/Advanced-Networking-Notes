@@ -24,4 +24,44 @@ Order of BGP path selection from MOST preferred to LEAST preferred:
 
 ## Load Balancers
 
+### General notes 
+
 You can only specify one protocol and port number per target group.
+
+### GLB
+
+Gateway Load Balancer (GLB) - designed for security appliances
+
+### ALB
+
+OSI Layer 7
+
+Protocol Listeners HTTP, HTTPS, gRPC
+
+No PrivateLink support
+
+No static IP address
+
+HTTP header based routing
+
+Source IP preservation with `x-forwarded-for`
+
+SSL termination at load balancer
+
+### NLB
+
+OSI layer 4
+
+Protocol Listeners TCP, UDP, TLS
+
+Private Link support over TCP/TLS
+
+Yes static IP address
+
+No HTTP header based routing
+
+Source IP preservation is native
+
+SSL Termination at load balancer or target
+
+
