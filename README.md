@@ -32,6 +32,8 @@ You can only specify one protocol and port number per target group.
 
 Gateway Load Balancer (GLB) - designed for security appliances
 
+Integrates with auto scaling
+
 ### ALB
 
 OSI Layer 7
