@@ -6,6 +6,10 @@ DNS resolver runs on a reserved IP address for the VPC network range, plus 2. Fo
 
 Route 53 Resolver is also available at 169.254.169.2**53**
 
+**enableDnsHostnames** - the default for this attribute is false, unless the VPC is default or the VPC was created usign the VPC console wizard
+
+**enableDnsSupport** - Queries to the Amazon provided DNS server succeed, default is true no matter how the VPC was created
+
 ## Routing priority 
 
 Order of BGP path selection from MOST preferred to LEAST preferred:
@@ -65,5 +69,28 @@ No HTTP header based routing
 Source IP preservation is native
 
 SSL Termination at load balancer or target
+
+## ECS Networking
+
+**awsvpc** - The task is allocated its own elastic network interface (ENI) and a primary private IPv4 address
+
+**bridge** - The task utilizes Docker's built-in virtual network which runs inside each Amazon EC2 instance hosting the task
+
+**host** - The task bypassess Docker's built-in virtual network and maps container ports directly to the ENI of the Amazon EC2 instance hosting the task
+
+**none** - no external networking 
+
+## EKS Networking
+
+### Pod Networking
+
+Amazon EKS supports native VPC networking with the Amazon VPC Container Network Interface (CNI) plugin for Kubernetes that assigns private IPv4 or IPv6 from VPC to each pod
+
+
+
+
+
+
+
 
 
