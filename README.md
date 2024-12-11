@@ -10,6 +10,33 @@ Route 53 Resolver is also available at 169.254.169.2**53**
 
 **enableDnsSupport** - Queries to the Amazon provided DNS server succeed, default is true no matter how the VPC was created
 
+If both set to `true`: 
+
+* instances with public IP addresses recieve corresponding public DNS hostnames
+* The Amazon Route 53 Resolver server can resolve Amazon-provided private DNS hostnames
+
+If at least one set to `false`: 
+
+* Intsances with public IP addresses do not recieve public DNS hostnames
+* Route53 Resolver cannot resolve Amazon-provided private DNS hostnames
+* Instances recieve custom private DNS hostnames if there is a custom domain name in the DHCP options set
+
+If you use custom DNS hostnames defined in private hosted zone, or private DNS with interface VPC endpoints, you must set both attributes to `true`
+
+**Route53 Resolver listens** - .2 of subnets and 169.254.169.253. IPV6: fd00:ec2::253
+
+### DHCP Options Set 
+
+**domain-name-servers** - IP addresses for up to four IPv4 dns servers and four IPv6 dns servers
+
+**domain-name** - custom domain name for your instances
+
+**ntp-servers** - the ip addresses of up to eight NTP servers 
+
+**netbios-name-servers** - the ips of up to four NetBIOS name servers 
+
+**netbios-node-type** - the NetBIOS node type (1,2,4,8) 
+
 ## Routing priority 
 
 Order of BGP path selection from MOST preferred to LEAST preferred:
